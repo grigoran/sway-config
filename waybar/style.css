@@ -99,6 +99,7 @@ button {
   margin: 0 4px;
 }
 
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
@@ -287,4 +288,8 @@ label:focus {
 
 #scratchpad.empty {
   background-color: transparent;
+}
+
+#custom-arch{
+  padding: 0 10px; 
 }
