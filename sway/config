@@ -256,7 +256,7 @@ for_window {
 }
 
 
-for_window [app_id="nmtui_popup"] focus, floating enable, resize set 400px 400px ,move position 1500px 0px
+for_window [app_id="nmtui_popup"] focus, floating enable, move position 1500px 0px
 
 
 

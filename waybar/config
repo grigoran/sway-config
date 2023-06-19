@@ -8,25 +8,32 @@
     "sway/window"
   ],
   "modules-right": [
+    "mpris",
     "tray",
     "network",
     "clock",
+    "sway/language",
     "custom/notification"
   ],
   "sway/window": {
     "max-length": 50
   },
   "network": {
-    "format": "{ifname}",
-    "format-wifi": "{signalStrength}% ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format": "{iframe}",
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": "{ipaddr}/{cidr}",
     "format-disconnected": "",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-ethernet": "{ifname}",
     "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "exec foot -a nmtui_popup -e nmtui"
+    "on-click": "swaymsg [app_id='nmtui_popup'] kill & exec foot -a nmtui_popup -w 400x400 -e nmtui"
   },
   "clock": {
     "format": "{:%a, %d. %b  %H:%M}",
@@ -51,18 +58,29 @@
     "icon-size": 16,
     "spacing": 10
   },
+  "mpris": {
+    "format": "{status_icon} {artist} {title}",
+    "status-icons": {
+      "playing": "󰏤",
+      "paused": ""
+    },
+    "player": "chromium",
+    "ignored-players": [
+      "firefox"
+    ]
+  },
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
     },
     "return-type": "json",
     "exec-if": "which swaync-client",

@@ -3,3 +3,4 @@
 #copy config files
 cp -r $HOME/.config/sway ./
 cp -r $HOME/.config/waybar ./
+cp -r $HOME/.config/fuzzel ./
