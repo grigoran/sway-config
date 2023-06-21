@@ -89,7 +89,7 @@ output * bg ~/.wallpapers/wallpaper-master/base.png fill
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     
     # Toggle control center
-    bindsym $mod+Shift+n exec swaync-client -t -sw
+    bindsym $mod+a exec swaync-client -t -sw
 #
 # Moving around:
 #
@@ -164,8 +164,6 @@ output * bg ~/.wallpapers/wallpaper-master/base.png fill
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -246,13 +244,13 @@ assign {
     [class="discord"] workspace 2
     [title="VK Мессенджер"] workspace 2
     [app_id="org.telegram.desktop"] workspace 2
-    [title="Яндекс Музыка"] workspace 2
+    [title="Yandex.Music"] workspace 2
 }
 
 for_window {
     [title="VK Мессенджер"] move left, splith
     [app_id="org.telegram.desktop"] mark --add telegram, move right, splitv
-    [title="Яндекс Музыка"] [app_id="org.telegram.desktop"] focus, splitv; move to mark telegram, resize set height 100px
+    [title="Yandex.Music"] [app_id="org.telegram.desktop"] focus, splitv; move to mark telegram, resize set height 100px
 }
 
 
@@ -263,16 +261,11 @@ for_window [app_id="nmtui_popup"] focus, floating enable, move position 1500px 0
 #
 # autostart:
 #
-    set $telegram `telegram-desktop`
-    set $vkmes `/opt/yandex/browser/yandex-browser --profile-directory=Default --app-id=dndlfpjhejbamfehjdjohojmehclpdko`
-    set $yamus `/opt/yandex/browser/yandex-browser --profile-directory=Default --app-id=kfpppekhhckijcekkbpelheekfhcacfc`
 
     # Notification Daemon
     exec swaync
 
     exec /usr/lib/kdeconnectd
-
-    exec $telegram&$vkmes&$yamus
 
     #polkit
     exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
